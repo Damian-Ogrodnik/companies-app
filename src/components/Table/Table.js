@@ -1,20 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { fetchCompanies } from "../../redux/data/dataUtils";
+import { paginateCompanies } from "../../redux/pagination/paginationUtils";
+
 import { TableRow } from "../TableRow";
 import { Pagination } from "../Pagination/Pagination";
 
 export const Table = () => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(10);
-
   const dispatch = useDispatch();
   const companies = useSelector(store => store.data.companies);
+  const paginatedCompanies = useSelector(
+    store => store.pagination.paginatedCompanies
+  );
 
   useEffect(() => {
     dispatch(fetchCompanies());
+    //dispatch(paginateCompanies(1, companies));
   }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(paginateCompanies(1, companies));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [companies]);
 
   return (
     <>
@@ -27,7 +35,7 @@ export const Table = () => {
           header={true}
           details={"More"}
         />
-        {companies.map(({ id, name, city }) => (
+        {paginatedCompanies.map(({ id, name, city }) => (
           <TableRow key={id} id={id} name={name} city={city} />
         ))}
       </ul>

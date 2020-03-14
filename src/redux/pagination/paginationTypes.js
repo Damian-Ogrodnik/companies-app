@@ -1,0 +1,3 @@
+export const SET_PAGE = "SET_PAGE";
+export const PAGINATE_SUCCESS = "PAGINATE_SUCCESS";
+export const PAGINATE_FAILURE = "PAGINATION_FAILURE";
