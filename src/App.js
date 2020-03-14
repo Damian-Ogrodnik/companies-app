@@ -1,13 +1,19 @@
 import React from "react";
+import { Provider } from "react-redux";
 import "./css/main.css";
+
+import store from "./redux/store";
+
 import { Search } from "./components/Search";
 import { Table } from "./components/Table/Table";
 
 export const App = () => {
   return (
-    <div className="App">
-      <Search />
-      <Table />
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <Search />
+        <Table />
+      </div>
+    </Provider>
   );
 };
