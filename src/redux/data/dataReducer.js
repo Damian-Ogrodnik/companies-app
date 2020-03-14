@@ -1,7 +1,7 @@
 import * as types from "./dataTypes";
 
 const initialState = {
-  data: [],
+  companies: [],
   loading: false,
   error: null
 };
@@ -19,7 +19,7 @@ const dataReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        data: payload.data
+        companies: payload.companies
       };
     case types.FETCH_FAILURE:
       return {
