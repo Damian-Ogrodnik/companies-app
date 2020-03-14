@@ -4,6 +4,7 @@ export const TableRow = ({
   id,
   name,
   city,
+  income,
   details = false,
   header = false
 }) => {
@@ -12,6 +13,7 @@ export const TableRow = ({
       <p>{id}</p>
       <p>{name}</p>
       <p>{city}</p>
+      <p>{income}</p>
       {details ? details : <button>Details</button>}
     </li>
   );

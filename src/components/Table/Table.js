@@ -26,18 +26,19 @@ export const Table = () => {
 
   return (
     <>
-      <Pagination companies={companies} />
       <ul className="table">
         <TableRow
           id={"ID"}
           name={"NAME"}
           city={"CITY"}
+          income={"INCOME"}
           header={true}
           details={"More"}
         />
-        {paginatedCompanies.map(({ id, name, city }) => (
-          <TableRow key={id} id={id} name={name} city={city} />
+        {paginatedCompanies.map(({ id, name, city, income }) => (
+          <TableRow key={id} id={id} name={name} city={city} income={income} />
         ))}
+        <Pagination companies={companies} />
       </ul>
     </>
   );
