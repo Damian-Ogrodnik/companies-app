@@ -1,0 +1,9 @@
+.pagination {
+  @include flex-center;
+  list-style-type: none;
+  padding: 2rem 0rem;
+
+  &__item {
+    padding: 0.25rem;
+  }
+}
