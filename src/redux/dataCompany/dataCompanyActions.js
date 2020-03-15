@@ -6,10 +6,10 @@ export const startFetch = () => {
   };
 };
 
-export const fetchSuccess = companyDetails => {
+export const fetchSuccess = incomes => {
   return {
     type: types.FETCH_COMPANY_DETAILS_SUCCESS,
-    payload: { companyDetails }
+    payload: { incomes }
   };
 };
 

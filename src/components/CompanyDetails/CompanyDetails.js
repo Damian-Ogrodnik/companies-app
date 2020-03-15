@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Modal from "react-modal";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { fetchCompanyDetails } from "../../redux/dataCompany/dataCompanyUtils";
+import { getLastMonthIncome } from "../../services/companyDetails";
 
 const customStyles = {
   content: {
@@ -22,13 +23,26 @@ export const CompanyDetails = ({
   openModal,
   setOpenModal
 }) => {
+  const [lastMonthIncome, setLastMonthIncome] = useState(0);
   const dispatch = useDispatch();
+  const incomes = useSelector(store => store.companyDetails.incomes);
 
   Modal.setAppElement("li");
 
   useEffect(() => {
-    if (openModal) dispatch(fetchCompanyDetails(id));
-  }, [dispatch, id, openModal]);
+    if (openModal) {
+      dispatch(fetchCompanyDetails(id));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [openModal]);
+
+  useEffect(() => {
+    if (openModal) {
+      getLastMonthIncome(incomes).then(sum => setLastMonthIncome(sum));
+      //setLastMonthIncome(monthIncome);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [incomes]);
 
   return (
     <Modal isOpen={openModal} style={customStyles} contentLabel="Example Modal">
@@ -54,7 +68,7 @@ export const CompanyDetails = ({
           </div>
           <div className="company-details__incomes income">
             <p>LAST MONTH INCOME</p>
-            <p>4238</p>
+            <p>{lastMonthIncome}</p>
           </div>
         </div>
         <div className="company-details__close">

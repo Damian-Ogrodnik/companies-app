@@ -1,7 +1,7 @@
 import * as types from "./dataCompanyTypes";
 
 const initialState = {
-  companyDetails: [],
+  incomes: [],
   loading: false,
   error: null
 };
@@ -19,7 +19,7 @@ const dataComanyReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        companyDetails: payload.companyDetails
+        incomes: payload.incomes
       };
     case types.FETCH_COMPANY_DETAILS_FAILURE:
       return {
@@ -29,7 +29,7 @@ const dataComanyReducer = (state = initialState, action) => {
       };
     case types.RESET:
       return {
-        companyDetails: [],
+        incomes: [],
         loading: false,
         error: null
       };

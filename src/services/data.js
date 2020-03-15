@@ -7,9 +7,12 @@ export const getIncomes = async companies => {
     );
     let income = 0;
     await response.data.incomes.forEach(
-      element => (income += parseInt(element.value))
+      element => (income += parseFloat(element.value))
     );
-    return { ...companies, income };
+    return {
+      ...companies,
+      income: Math.round((income + Number.EPSILON) * 100) / 100
+    };
   });
   let sorted = [];
   await Promise.all(companiesWithIncomes).then(async resolved => {
