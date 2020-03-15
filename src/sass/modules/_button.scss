@@ -1,0 +1,22 @@
+button {
+  font-size: 0.75rem;
+  padding: 0.25rem;
+  outline: 0;
+  font-weight: 100;
+  border-radius: 1rem;
+  color: $font-color;
+  border: 0.1rem solid $first-color;
+  background-color: $background-color;
+
+  transition: background-color 1s ease;
+  transition: border-color 1s ease;
+  &:hover {
+    background-color: $second-color;
+    border-color: $second-color;
+  }
+  &:active {
+    transform: translateY(4px);
+    border-color: $second-color;
+    background-color: $second-color;
+  }
+}

@@ -16,7 +16,10 @@ const customStyles = {
     right: "auto",
     bottom: "auto",
     marginRight: "-50%",
-    transform: "translate(-50%, -50%)"
+    transform: "translate(-50%, -50%)",
+    backgroundColor: "#8d99ae",
+    border: "0.25rem solid #2b2d42",
+    borderRadius: "1rem"
   }
 };
 

@@ -1,14 +1,35 @@
 .table {
   height: 90vh;
 
+  &__wrapper {
+    border: 0.25rem solid $first-color;
+    border-radius: 1rem;
+    background-color: $third-color;
+    margin: 0rem 2rem;
+    box-shadow: 0 1.25px 2.25rem rgba(0, 0, 0, 0.3),
+      0 1rem 0.75rem rgba(0, 0, 0, 0.22);
+  }
+
   &__row {
     display: flex;
     justify-content: space-around;
     padding: 0.25rem 5rem;
 
     &.header {
+      position: relative;
       font-weight: 700;
-      padding-bottom: 0.75rem;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
+
+      &:after {
+        content: "";
+        width: 95%;
+        height: 0.1rem; /* slight higher to work around rounding errors(?) on some zoom levels in some browsers. */
+        background-color: #2b2d42;
+        position: absolute;
+        bottom: 0;
+      }
     }
 
     p {

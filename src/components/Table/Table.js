@@ -28,23 +28,31 @@ export const Table = () => {
   }, [companies, filteredCompanies]);
 
   return (
-    <>
-      <ul className="table">
-        <TableRow
-          id={"ID"}
-          name={"NAME"}
-          city={"CITY"}
-          income={"INCOME"}
-          header={true}
-          details={"More"}
-        />
-        {paginatedCompanies.map(({ id, name, city, income }) => (
-          <TableRow key={id} id={id} name={name} city={city} income={income} />
-        ))}
-        <Pagination
-          companies={filteredCompanies ? filteredCompanies : companies}
-        />
-      </ul>
-    </>
+    <div className="table">
+      <div className="table__wrapper">
+        <ul>
+          <TableRow
+            id={"ID"}
+            name={"NAME"}
+            city={"CITY"}
+            income={"INCOME"}
+            header={true}
+            details={"MORE"}
+          />
+          {paginatedCompanies.map(({ id, name, city, income }) => (
+            <TableRow
+              key={id}
+              id={id}
+              name={name}
+              city={city}
+              income={income}
+            />
+          ))}
+          <Pagination
+            companies={filteredCompanies ? filteredCompanies : companies}
+          />
+        </ul>
+      </div>
+    </div>
   );
 };
