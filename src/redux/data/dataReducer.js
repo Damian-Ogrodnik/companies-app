@@ -4,7 +4,6 @@ const initialState = {
   companies: [],
   loading: false,
   error: null,
-  search: null,
   filteredCompanies: null
 };
 
@@ -34,7 +33,6 @@ const dataReducer = (state = initialState, action) => {
         ...state,
         filteredCompanies: payload.filteredCompanies
       };
-
     default:
       return state;
   }

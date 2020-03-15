@@ -19,9 +19,15 @@ export const TableRow = ({
       {details ? (
         details
       ) : (
-        <button onClick={() => setOpenModal(true)}>Details</button>
+        <>
+          <button onClick={() => setOpenModal(true)}>Details</button>
+          <CompanyDetails
+            basicData={{ id, name, city, income }}
+            openModal={openModal}
+            setOpenModal={setOpenModal}
+          />
+        </>
       )}
-      <CompanyDetails openModal={openModal} setOpenModal={setOpenModal} />
     </li>
   );
 };

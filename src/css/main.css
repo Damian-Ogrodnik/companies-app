@@ -1,3 +1,96 @@
+.company-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+  height: 100%;
+}
+
+.company-details__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.company-details__header p {
+  font-weight: 700;
+  width: 100%;
+  padding: 1rem 0.25rem 0.25rem 0.25rem;
+}
+
+.company-details__basic-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.company-details__basic-info p {
+  width: 100%;
+  padding: 0.25rem;
+}
+
+.company-details__incomes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 100%;
+}
+
+.company-details__incomes .income {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.company-details__incomes .income p {
+  width: 100%;
+  padding: 0.25rem;
+}
+
+.company-details__incomes .income p:first-child {
+  font-weight: 700;
+  padding-top: 1rem;
+}
+
+.company-details__close {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.company-details__close button {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  margin: 1rem;
+}
+
+.border {
+  border: 1px solid yellow;
+}
+
 .pagination {
   display: -webkit-box;
   display: -ms-flexbox;

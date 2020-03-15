@@ -11,7 +11,6 @@ export const fetchCompanies = () => async dispatch => {
       "https://recruitment.hal.skygate.io/companies"
     );
     const companiesSortedIncome = await getIncomes(response.data);
-    console.log(companiesSortedIncome);
     dispatch(actions.fetchSuccess(companiesSortedIncome));
   } catch (error) {
     dispatch(actions.fetchFailure(error.message));
