@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import "react-datepicker/dist/react-datepicker.css";
 
 import { getStartStopDates } from "../../services/companyDetails";
+import { setDates } from "../../redux/dataCompany/dataCompanyUtils";
 
 export const DateRange = () => {
-  const [startDate, setStartDate] = useState(new Date("2014/02/08"));
-  const [endDate, setEndDate] = useState(new Date("2014/02/10"));
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
+  const dispatch = useDispatch();
   const incomes = useSelector(store => store.companyDetails.incomes);
 
   useEffect(() => {
@@ -21,6 +23,11 @@ export const DateRange = () => {
       });
     }
   }, [incomes]);
+
+  useEffect(() => {
+    dispatch(setDates(startDate, endDate));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [startDate, endDate]);
 
   return (
     <div className="company-details__date-range">

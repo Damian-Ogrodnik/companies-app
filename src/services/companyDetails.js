@@ -21,3 +21,24 @@ export const getStartStopDates = async incomes => {
     return {};
   }
 };
+
+export const getIncomes = async (startDate, stopDate, incomes) => {
+  const filteredIncomes = await incomes.filter(
+    ({ date }) => startDate <= new Date(date) && stopDate >= new Date(date)
+  );
+
+  let totalIncome = 0;
+
+  await filteredIncomes.forEach(({ value }) => {
+    let parsedValue = parseFloat(value);
+    totalIncome += Math.round((parsedValue + Number.EPSILON) * 100) / 100;
+  });
+
+  return {
+    totalIncome: Math.round((totalIncome + Number.EPSILON) * 100) / 100,
+    averageIncome:
+      Math.round(
+        (totalIncome / filteredIncomes.length + Number.EPSILON) * 100
+      ) / 100
+  };
+};

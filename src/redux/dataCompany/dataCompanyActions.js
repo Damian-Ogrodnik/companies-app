@@ -20,6 +20,20 @@ export const fetchFailure = error => {
   };
 };
 
+export const setBeginDate = startDate => {
+  return {
+    type: types.SET_START_DATE,
+    payload: { startDate }
+  };
+};
+
+export const setEndDate = stopDate => {
+  return {
+    type: types.SET_STOP_DATE,
+    payload: { stopDate }
+  };
+};
+
 export const reset = () => {
   return {
     type: types.RESET

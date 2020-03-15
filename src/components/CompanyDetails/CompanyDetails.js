@@ -3,7 +3,7 @@ import Modal from "react-modal";
 import { useDispatch, useSelector } from "react-redux";
 
 import { fetchCompanyDetails } from "../../redux/dataCompany/dataCompanyUtils";
-import { getLastMonthIncome } from "../../services/companyDetails";
+import { getLastMonthIncome, getIncomes } from "../../services/companyDetails";
 
 import { DateRange } from "../DateRange/DateRange";
 
@@ -26,8 +26,12 @@ export const CompanyDetails = ({
   setOpenModal
 }) => {
   const [lastMonthIncome, setLastMonthIncome] = useState(0);
+  const [totalIncome, setTotalIncome] = useState(0);
+  const [averageIncome, setAverageIncome] = useState(0);
   const dispatch = useDispatch();
   const incomes = useSelector(store => store.companyDetails.incomes);
+  const startDate = useSelector(store => store.companyDetails.startDate);
+  const stopDate = useSelector(store => store.companyDetails.stopDate);
 
   Modal.setAppElement("li");
 
@@ -45,9 +49,21 @@ export const CompanyDetails = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [incomes]);
 
+  useEffect(() => {
+    if (openModal)
+      getIncomes(startDate, stopDate, incomes).then(
+        ({ totalIncome, averageIncome }) => {
+          setTotalIncome(totalIncome);
+          setAverageIncome(averageIncome);
+        }
+      );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [startDate, stopDate, incomes]);
+
   return (
     <Modal isOpen={openModal} style={customStyles} contentLabel="Example Modal">
       <div className="company-details">
+        <h2>DETAILS</h2>
         <div className="company-details__header">
           <p>ID</p>
           <p>NAME</p>
@@ -61,11 +77,11 @@ export const CompanyDetails = ({
         <div className="company-details__incomes">
           <div className="company-details__incomes income">
             <p>TOTAL INCOME</p>
-            <p>{income}</p>
+            <p>{totalIncome}</p>
           </div>
           <div className="company-details__incomes income">
             <p>AVERAGE INCOME</p>
-            <p>8778</p>
+            <p>{averageIncome}</p>
           </div>
           <div className="company-details__incomes income">
             <p>LAST MONTH INCOME</p>

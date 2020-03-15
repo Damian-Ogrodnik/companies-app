@@ -13,3 +13,12 @@ export const fetchCompanyDetails = id => async dispatch => {
     dispatch(actions.fetchFailure(error.message));
   }
 };
+
+export const setDates = (beginDate, endDate) => async dispatch => {
+  try {
+    dispatch(actions.setBeginDate(beginDate));
+    dispatch(actions.setEndDate(endDate));
+  } catch (error) {
+    console.log(error);
+  }
+};

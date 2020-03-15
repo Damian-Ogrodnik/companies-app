@@ -3,7 +3,9 @@ import * as types from "./dataCompanyTypes";
 const initialState = {
   incomes: [],
   loading: false,
-  error: null
+  error: null,
+  startDate: null,
+  stopDate: null
 };
 
 const dataComanyReducer = (state = initialState, action) => {
@@ -26,6 +28,16 @@ const dataComanyReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         error: payload.error
+      };
+    case types.SET_START_DATE:
+      return {
+        ...state,
+        startDate: payload.startDate
+      };
+    case types.SET_STOP_DATE:
+      return {
+        ...state,
+        stopDate: payload.stopDate
       };
     case types.RESET:
       return {
