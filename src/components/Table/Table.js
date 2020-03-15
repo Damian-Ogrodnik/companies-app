@@ -10,6 +10,7 @@ import { Pagination } from "../Pagination/Pagination";
 export const Table = () => {
   const dispatch = useDispatch();
   const companies = useSelector(store => store.data.companies);
+  const filteredCompanies = useSelector(store => store.data.filteredCompanies);
   const paginatedCompanies = useSelector(
     store => store.pagination.paginatedCompanies
   );
@@ -20,9 +21,11 @@ export const Table = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(paginateCompanies(1, companies));
+    filteredCompanies
+      ? dispatch(paginateCompanies(1, filteredCompanies))
+      : dispatch(paginateCompanies(1, companies));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [companies]);
+  }, [companies, filteredCompanies]);
 
   return (
     <>
@@ -38,7 +41,9 @@ export const Table = () => {
         {paginatedCompanies.map(({ id, name, city, income }) => (
           <TableRow key={id} id={id} name={name} city={city} income={income} />
         ))}
-        <Pagination companies={companies} />
+        <Pagination
+          companies={filteredCompanies ? filteredCompanies : companies}
+        />
       </ul>
     </>
   );

@@ -27,12 +27,10 @@
       -ms-flex-pack: center;
           justify-content: center;
   height: 10vh;
-  border: 3px solid red;
 }
 
 .table {
   height: 90vh;
-  border: 3px solid yellow;
 }
 
 .table__row {

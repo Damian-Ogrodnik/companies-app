@@ -9,9 +9,11 @@ export const Pagination = ({ postsPerPage = 10, companies }) => {
 
   useEffect(() => {
     const calculatePages = async () => {
+      let newArray = [];
       for (let i = 1; i <= Math.ceil(companies.length / postsPerPage); i++) {
-        setPageNumbers(oldArray => [...oldArray, i]);
+        newArray.push(i);
       }
+      setPageNumbers(newArray);
     };
     calculatePages();
     // eslint-disable-next-line react-hooks/exhaustive-deps

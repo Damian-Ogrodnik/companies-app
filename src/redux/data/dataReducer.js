@@ -3,7 +3,9 @@ import * as types from "./dataTypes";
 const initialState = {
   companies: [],
   loading: false,
-  error: null
+  error: null,
+  search: null,
+  filteredCompanies: null
 };
 
 const dataReducer = (state = initialState, action) => {
@@ -27,6 +29,17 @@ const dataReducer = (state = initialState, action) => {
         loading: false,
         error: payload.error
       };
+    case types.SET_SEARCH:
+      return {
+        ...state,
+        search: payload.search
+      };
+    case types.FILTERED_COMPANIES:
+      return {
+        ...state,
+        filteredCompanies: payload.filteredCompanies
+      };
+
     default:
       return state;
   }
