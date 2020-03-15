@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCompanyDetails } from "../../redux/dataCompany/dataCompanyUtils";
 import { getLastMonthIncome } from "../../services/companyDetails";
 
+import { DateRange } from "../DateRange/DateRange";
+
 const customStyles = {
   content: {
     width: "80%",
@@ -39,7 +41,6 @@ export const CompanyDetails = ({
   useEffect(() => {
     if (openModal) {
       getLastMonthIncome(incomes).then(sum => setLastMonthIncome(sum));
-      //setLastMonthIncome(monthIncome);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [incomes]);
@@ -71,6 +72,7 @@ export const CompanyDetails = ({
             <p>{lastMonthIncome}</p>
           </div>
         </div>
+        <DateRange />
         <div className="company-details__close">
           <button onClick={() => setOpenModal(false)}>Close</button>
         </div>

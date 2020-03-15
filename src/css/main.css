@@ -66,6 +66,37 @@
   padding-top: 1rem;
 }
 
+.company-details__date-range {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.company-details__date-range p {
+  margin: 1rem 0rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.company-details__datepickers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.company-details__datepicker p {
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: normal;
+  margin: 0;
+}
+
 .company-details__close {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -85,10 +116,6 @@
   font-size: 1.5rem;
   padding: 0.5rem;
   margin: 1rem;
-}
-
-.border {
-  border: 1px solid yellow;
 }
 
 .pagination {

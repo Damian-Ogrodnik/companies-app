@@ -43,6 +43,31 @@
     }
   }
 
+  &__date-range {
+    display: flex;
+    flex-direction: column;
+
+    p {
+      margin: 1rem 0rem;
+      text-align: center;
+      font-weight: 700;
+    }
+  }
+
+  &__datepickers {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &__datepicker {
+    p {
+      text-align: left;
+      font-size: 0.75rem;
+      font-weight: normal;
+      margin: 0;
+    }
+  }
+
   &__close {
     @include flex-center;
     position: absolute;
@@ -54,8 +79,4 @@
       margin: 1rem;
     }
   }
-}
-
-.border {
-  border: 1px solid yellow;
 }

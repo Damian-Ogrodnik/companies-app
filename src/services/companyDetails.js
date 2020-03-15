@@ -7,3 +7,17 @@ export const getLastMonthIncome = async incomes => {
   });
   return Math.round((sum + Number.EPSILON) * 100) / 100;
 };
+
+export const getStartStopDates = async incomes => {
+  const dates = await incomes.map(income => new Date(income.date));
+
+  let maxDate = new Date(Math.max.apply(null, dates));
+  let minDate = new Date(Math.min.apply(null, dates));
+  console.log(minDate);
+
+  if (minDate instanceof Date && !isNaN(minDate)) {
+    return { minDate, maxDate };
+  } else {
+    return {};
+  }
+};
