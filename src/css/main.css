@@ -142,6 +142,16 @@
   padding: 0.25rem;
 }
 
+.pagination__item button {
+  width: 1.5rem;
+}
+
+.pagination__item--active button {
+  background-color: #e2dd28;
+  border-color: #e2dd28;
+  width: 1.5rem;
+}
+
 .search {
   display: -webkit-box;
   display: -ms-flexbox;

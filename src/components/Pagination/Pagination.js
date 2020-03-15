@@ -5,6 +5,7 @@ import { paginateCompanies } from "../../redux/pagination/paginationUtils";
 
 export const Pagination = ({ postsPerPage = 10, companies }) => {
   const [pageNumbers, setPageNumbers] = useState([]);
+  const [active, setActive] = useState(1);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -16,17 +17,22 @@ export const Pagination = ({ postsPerPage = 10, companies }) => {
       setPageNumbers(newArray);
     };
     calculatePages();
+    setActive(1);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [companies]);
 
   const paginate = pageNumber => {
     dispatch(paginateCompanies(pageNumber, companies));
+    setActive(pageNumber);
   };
 
   return (
     <ul className="pagination">
       {pageNumbers.map(number => (
-        <li key={number} className="pagination__item">
+        <li
+          key={number}
+          className={"pagination__item" + (active === number ? "--active" : "")}
+        >
           <button onClick={() => paginate(number)}>{number}</button>
         </li>
       ))}
