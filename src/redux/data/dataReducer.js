@@ -29,11 +29,6 @@ const dataReducer = (state = initialState, action) => {
         loading: false,
         error: payload.error
       };
-    case types.SET_SEARCH:
-      return {
-        ...state,
-        search: payload.search
-      };
     case types.FILTERED_COMPANIES:
       return {
         ...state,

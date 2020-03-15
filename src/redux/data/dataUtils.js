@@ -20,16 +20,16 @@ export const fetchCompanies = () => async dispatch => {
 
 export const filterCompanies = (search, companies) => async dispatch => {
   try {
-    dispatch(actions.setSearch(search));
     const filteredCompanies = await filterArray(search, companies);
     dispatch(actions.setFilteredCompanies(filteredCompanies));
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const filterArray = async (search, array) => {
   const filteredArray = await array.filter(element =>
     element.name.toLowerCase().includes(search.toLowerCase())
   );
-  console.log(filteredArray);
   return filteredArray;
 };

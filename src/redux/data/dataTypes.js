@@ -1,5 +1,4 @@
 export const START_FETCH = "START_FETCH";
 export const FETCH_SUCCESS = "FETCH_SUCCESS";
 export const FETCH_FAILURE = "FETCH_FAILURE";
-export const SET_SEARCH = "SET_SEARCH";
 export const FILTERED_COMPANIES = "FILTERED_COMPANIES";

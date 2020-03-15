@@ -20,13 +20,6 @@ export const fetchFailure = error => {
   };
 };
 
-export const setSearch = search => {
-  return {
-    type: types.SET_SEARCH,
-    payload: { search }
-  };
-};
-
 export const setFilteredCompanies = filteredCompanies => {
   return {
     type: types.FILTERED_COMPANIES,
