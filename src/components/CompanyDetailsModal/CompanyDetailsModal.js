@@ -6,22 +6,6 @@ import { reset } from "../../redux/dataCompany/dataCompanyActions";
 
 import { CompanyDetails } from "../CompanyDetails/";
 
-const customStyles = {
-  content: {
-    width: "80%",
-    height: "80%",
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-    backgroundColor: "#8d99ae",
-    border: "0.25rem solid #2b2d42",
-    borderRadius: "1rem"
-  }
-};
-
 export const CompanyDetailsModal = ({ basicData, openModal, setOpenModal }) => {
   const loading = useSelector(store => store.companyDetails.loading);
   const error = useSelector(store => store.companyDetails.error);
@@ -30,7 +14,12 @@ export const CompanyDetailsModal = ({ basicData, openModal, setOpenModal }) => {
   Modal.setAppElement("body");
 
   return (
-    <Modal isOpen={openModal} style={customStyles} contentLabel="details">
+    <Modal
+      isOpen={openModal}
+      contentLabel="details"
+      className="modal"
+      overlayClassName="overlay"
+    >
       <CompanyDetails
         loading={loading}
         error={error}
