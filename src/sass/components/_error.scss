@@ -1,0 +1,15 @@
+.error {
+  @include flex-center-column;
+  width: 100%;
+  height: 60vh;
+
+  &__icon {
+    width: 5rem;
+    height: 5rem;
+    color: $error-font-color;
+    margin-bottom: 1rem;
+  }
+  p {
+    color: $error-font-color;
+  }
+}

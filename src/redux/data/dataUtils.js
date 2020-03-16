@@ -8,7 +8,7 @@ export const fetchCompanies = () => async dispatch => {
   try {
     await dispatch(actions.startFetch());
     const response = await axios.get(
-      "https://recruitment.hal.skygate.io/companies"
+      "https://recruitment.hal.skygate.io/companiesss"
     );
     const companiesSortedIncome = await getIncomes(response.data);
     dispatch(actions.fetchSuccess(companiesSortedIncome));
