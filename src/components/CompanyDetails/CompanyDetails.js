@@ -6,11 +6,9 @@ import { fetchCompanyDetails } from "../../redux/dataCompany/dataCompanyUtils";
 import { getLastMonthIncome, getIncomes } from "../../services/companyDetails";
 
 import { DateRange } from "../DateRange";
+import { withLoading } from "../withLoading";
 
-export const CompanyDetails = ({
-  basicData: { id, city, name },
-  openModal
-}) => {
+const CompanyDetails = ({ basicData: { id, city, name }, openModal }) => {
   const [lastMonthIncome, setLastMonthIncome] = useState(0);
   const [totalIncome, setTotalIncome] = useState(0);
   const [averageIncome, setAverageIncome] = useState(0);
@@ -20,10 +18,10 @@ export const CompanyDetails = ({
   const stopDate = useSelector(store => store.companyDetails.stopDate);
 
   useEffect(() => {
-    if (openModal) {
+    if (openModal && !incomes.length) {
       dispatch(fetchCompanyDetails(id));
     }
-  }, [openModal]);
+  }, []);
 
   useEffect(() => {
     if (openModal) {
@@ -72,3 +70,6 @@ export const CompanyDetails = ({
     </div>
   );
 };
+
+const companyDetailsWithLoading = withLoading(CompanyDetails);
+export { companyDetailsWithLoading as CompanyDetails };
