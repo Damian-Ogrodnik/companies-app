@@ -20,7 +20,12 @@ export const TableRow = ({
         details
       ) : (
         <>
-          <button onClick={() => setOpenModal(true)}>Details</button>
+          <button
+            className="table__row__button"
+            onClick={() => setOpenModal(true)}
+          >
+            Details
+          </button>
           <CompanyDetailsModal
             basicData={{ id, name, city, income }}
             openModal={openModal}

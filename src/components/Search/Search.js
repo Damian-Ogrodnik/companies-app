@@ -16,7 +16,7 @@ export const Search = () => {
       <input
         type="text"
         className="search__input"
-        placeholder="Filter"
+        placeholder="Filter by name "
         onChange={e => handleChange(e)}
       />
     </div>

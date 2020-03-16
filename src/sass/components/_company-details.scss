@@ -63,6 +63,15 @@
   &__datepickers {
     display: flex;
     justify-content: space-around;
+
+    @media only screen and (max-width: 860px) {
+      align-items: center;
+      flex-direction: column;
+    }
+    @media only screen and (max-width: 600px) {
+      align-items: center;
+      flex-direction: column;
+    }
   }
 
   &__datepicker {
@@ -71,6 +80,15 @@
       font-size: 0.75rem;
       font-weight: normal;
       margin: 0;
+    }
+    input {
+      font-size: 1.25rem;
+      @media only screen and (max-width: 860px) {
+        margin-bottom: 1.5rem;
+      }
+      @media only screen and (max-width: 600px) {
+        margin-bottom: 1.5rem;
+      }
     }
   }
 

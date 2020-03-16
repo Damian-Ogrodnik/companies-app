@@ -87,10 +87,12 @@ export const Pagination = ({ postsPerPage = 10, companies }) => {
   };
 
   return (
-    <ul className="pagination">
-      {renderIcon(true)}
-      {renderPagination()}
-      {renderIcon(false)}
-    </ul>
+    <div className="pagination__wraper">
+      <ul className="pagination">
+        {renderIcon(true)}
+        {renderPagination()}
+        {renderIcon(false)}
+      </ul>
+    </div>
   );
 };

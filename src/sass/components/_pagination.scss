@@ -3,6 +3,12 @@
   list-style-type: none;
   padding: 2rem 0rem;
 
+  &__wraper {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+  }
+
   &__item {
     padding: 0.25rem;
 
