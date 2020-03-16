@@ -195,7 +195,20 @@
 }
 
 .pagination__arrow {
-  margin: 0rem 0.25rem;
+  color: #e2dd28;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0rem 0.5rem;
+}
+
+.pagination__arrow.right:active {
+  -webkit-transform: translateX(4px);
+          transform: translateX(4px);
+}
+
+.pagination__arrow.left:active {
+  -webkit-transform: translateX(-4px);
+          transform: translateX(-4px);
 }
 
 .search {

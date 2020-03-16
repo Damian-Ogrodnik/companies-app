@@ -20,6 +20,15 @@
   }
 
   &__arrow {
-    margin: 0rem 0.25rem;
+    color: $second-color;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: 0rem 0.5rem;
+    &.right:active {
+      transform: translateX(4px);
+    }
+    &.left:active {
+      transform: translateX(-4px);
+    }
   }
 }

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import { IconContext } from "react-icons";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 import { paginateCompanies } from "../../redux/pagination/paginationUtils";
 
@@ -64,21 +66,15 @@ export const Pagination = ({ postsPerPage = 10, companies }) => {
     ));
   };
 
-  const renderArrow = (func, text) => {
-    if (pageNumbers.length >= 10) {
-      return (
-        <button className="pagination__arrow" onClick={() => func()}>
-          {text}
-        </button>
-      );
-    }
-  };
-
   return (
     <ul className="pagination">
-      {renderArrow(pageDown, "<")}
+      <IconContext.Provider value={{ className: "pagination__arrow left" }}>
+        <FaArrowLeft onClick={() => pageDown()} />
+      </IconContext.Provider>
       {renderPagination()}
-      {renderArrow(pageUp, ">")}
+      <IconContext.Provider value={{ className: "pagination__arrow right" }}>
+        <FaArrowRight onClick={() => pageUp()} />
+      </IconContext.Provider>
     </ul>
   );
 };
