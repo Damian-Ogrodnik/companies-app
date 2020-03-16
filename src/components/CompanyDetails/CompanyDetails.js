@@ -36,7 +36,7 @@ export const CompanyDetails = ({
   const startDate = useSelector(store => store.companyDetails.startDate);
   const stopDate = useSelector(store => store.companyDetails.stopDate);
 
-  Modal.setAppElement("li");
+  //Modal.setAppElement("li");
 
   useEffect(() => {
     if (openModal) {
