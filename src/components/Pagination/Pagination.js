@@ -26,16 +26,59 @@ export const Pagination = ({ postsPerPage = 10, companies }) => {
     setActive(pageNumber);
   };
 
+  const pageUp = () => {
+    let upNumber =
+      active === pageNumbers.length ? pageNumbers.length : active + 1;
+    dispatch(paginateCompanies(upNumber, companies));
+    setActive(upNumber);
+  };
+
+  const pageDown = () => {
+    let downNumber = active - 1 === 0 ? 1 : active - 1;
+    dispatch(paginateCompanies(downNumber, companies));
+    setActive(downNumber);
+  };
+
+  const renderPagination = () => {
+    let start,
+      stop = 0;
+
+    if (active < 6) {
+      start = 0;
+      stop = 10;
+    } else if (active > pageNumbers.length - 9) {
+      start = pageNumbers.length - 10;
+      stop = pageNumbers.length;
+    } else {
+      start = active - 5 > 0 ? active - 5 : 0;
+      stop = active + 5;
+    }
+
+    return pageNumbers.slice(start, stop).map(number => (
+      <li
+        key={number}
+        className={"pagination__item" + (active === number ? "--active" : "")}
+      >
+        <button onClick={() => paginate(number)}>{number}</button>
+      </li>
+    ));
+  };
+
+  const renderArrow = (func, text) => {
+    if (pageNumbers.length >= 10) {
+      return (
+        <button className="pagination__arrow" onClick={() => func()}>
+          {text}
+        </button>
+      );
+    }
+  };
+
   return (
     <ul className="pagination">
-      {pageNumbers.map(number => (
-        <li
-          key={number}
-          className={"pagination__item" + (active === number ? "--active" : "")}
-        >
-          <button onClick={() => paginate(number)}>{number}</button>
-        </li>
-      ))}
+      {renderArrow(pageDown, "<")}
+      {renderPagination()}
+      {renderArrow(pageUp, ">")}
     </ul>
   );
 };
