@@ -13,7 +13,6 @@ export const getStartStopDates = async incomes => {
 
   let maxDate = new Date(Math.max.apply(null, dates));
   let minDate = new Date(Math.min.apply(null, dates));
-  console.log(minDate);
 
   if (minDate instanceof Date && !isNaN(minDate)) {
     return { minDate, maxDate };
@@ -34,11 +33,12 @@ export const getIncomes = async (startDate, stopDate, incomes) => {
     totalIncome += Math.round((parsedValue + Number.EPSILON) * 100) / 100;
   });
 
+  let averageIncome =
+    Math.round((totalIncome / filteredIncomes.length + Number.EPSILON) * 100) /
+      100 || 0;
+
   return {
     totalIncome: Math.round((totalIncome + Number.EPSILON) * 100) / 100,
-    averageIncome:
-      Math.round(
-        (totalIncome / filteredIncomes.length + Number.EPSILON) * 100
-      ) / 100
+    averageIncome
   };
 };
