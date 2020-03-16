@@ -66,15 +66,31 @@ export const Pagination = ({ postsPerPage = 10, companies }) => {
     ));
   };
 
+  const renderIcon = left => {
+    if (pageNumbers.length > 10) {
+      if (left) {
+        return (
+          <IconContext.Provider value={{ className: "pagination__arrow left" }}>
+            <FaArrowLeft onClick={() => pageDown()} />
+          </IconContext.Provider>
+        );
+      } else {
+        return (
+          <IconContext.Provider
+            value={{ className: "pagination__arrow right" }}
+          >
+            <FaArrowRight onClick={() => pageUp()} />
+          </IconContext.Provider>
+        );
+      }
+    }
+  };
+
   return (
     <ul className="pagination">
-      <IconContext.Provider value={{ className: "pagination__arrow left" }}>
-        <FaArrowLeft onClick={() => pageDown()} />
-      </IconContext.Provider>
+      {renderIcon(true)}
       {renderPagination()}
-      <IconContext.Provider value={{ className: "pagination__arrow right" }}>
-        <FaArrowRight onClick={() => pageUp()} />
-      </IconContext.Provider>
+      {renderIcon(false)}
     </ul>
   );
 };
