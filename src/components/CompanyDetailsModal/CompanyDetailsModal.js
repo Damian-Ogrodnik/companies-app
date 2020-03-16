@@ -27,7 +27,7 @@ export const CompanyDetailsModal = ({ basicData, openModal, setOpenModal }) => {
   const error = useSelector(store => store.companyDetails.error);
   const dispatch = useDispatch();
 
-  Modal.setAppElement("li");
+  Modal.setAppElement("body");
 
   return (
     <Modal isOpen={openModal} style={customStyles} contentLabel="details">

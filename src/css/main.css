@@ -192,6 +192,37 @@
   color: #b82601;
 }
 
+.information {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  height: 60vh;
+}
+
+.information__icon {
+  width: 5rem;
+  height: 5rem;
+  color: #2b2d42;
+  margin-bottom: 1rem;
+}
+
+.information p {
+  color: #2b2d42;
+  padding: 0;
+  margin: 0;
+}
+
 .loader {
   display: -webkit-box;
   display: -ms-flexbox;

@@ -8,6 +8,7 @@ import { paginateCompanies } from "../../redux/pagination/paginationUtils";
 import { TableRow } from "../TableRow";
 import { Pagination } from "../Pagination";
 import { withLoading } from "../withLoading";
+import { Information } from "../Information";
 
 const Table = () => {
   const dispatch = useDispatch();
@@ -28,20 +29,33 @@ const Table = () => {
   }, [companies, dispatch, filteredCompanies]);
   return (
     <ul>
-      <TableRow
-        id={"ID"}
-        name={"NAME"}
-        city={"CITY"}
-        income={"INCOME"}
-        header={true}
-        details={"MORE"}
-      />
-      {paginatedCompanies.map(({ id, name, city, income }) => (
-        <TableRow key={id} id={id} name={name} city={city} income={income} />
-      ))}
-      <Pagination
-        companies={filteredCompanies ? filteredCompanies : companies}
-      />
+      {Object.keys(paginatedCompanies).length !== 0 && (
+        <>
+          <TableRow
+            id={"ID"}
+            name={"NAME"}
+            city={"CITY"}
+            income={"INCOME"}
+            header={true}
+            details={"MORE"}
+          />
+          {paginatedCompanies.map(({ id, name, city, income }) => (
+            <TableRow
+              key={id}
+              id={id}
+              name={name}
+              city={city}
+              income={income}
+            />
+          ))}
+          <Pagination
+            companies={filteredCompanies ? filteredCompanies : companies}
+          />
+        </>
+      )}
+      {Boolean(!Object.keys(paginatedCompanies).length) && (
+        <Information msg="NOTHING FOUND" />
+      )}
     </ul>
   );
 };
