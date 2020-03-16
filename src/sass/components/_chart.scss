@@ -1,11 +1,50 @@
 .chart {
-  @include flex-center;
-  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  p {
+    font-weight: 700;
+    padding: 1rem;
+    text-align: center;
+  }
+}
 
-  &__wrapper {
-    background-color: $background-color;
-    padding: 2rem;
-    border: 3px solid $first-color;
-    border-radius: 1rem;
+.recharts-wrapper {
+  border: 0.2rem solid $first-color;
+  border-radius: 1rem;
+  background-color: $background-color;
+  width: 40rem !important;
+  height: 17rem !important;
+  padding: 1rem;
+
+  @media only screen and (max-width: 860px) {
+    height: 20rem !important;
+    width: 45rem !important;
+  }
+  @media only screen and (max-width: 600px) {
+    height: 20rem !important;
+    width: 45rem !important;
+  }
+  @media only screen and (max-width: 480px) {
+    width: 28rem !important;
+    height: 15rem !important;
+  }
+}
+
+.recharts-surface {
+  margin-top: 1rem;
+
+  @media only screen and (max-width: 860px) {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  @media only screen and (max-width: 600px) {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  @media only screen and (max-width: 480px) {
+    width: 100% !important;
+    height: 100% !important;
   }
 }

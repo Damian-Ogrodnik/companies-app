@@ -6,8 +6,7 @@ import {
   XAxis,
   YAxis,
   CartesianGrid,
-  Tooltip,
-  Legend
+  Tooltip
 } from "recharts";
 import { getMonthIncomes } from "../../services/chart";
 
@@ -20,21 +19,14 @@ export const Chart = ({ incomes }) => {
 
   return (
     <div className="chart">
-      <div className="chart__wrapper">
-        <LineChart
-          width={600}
-          height={200}
-          data={data}
-          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-        >
-          <XAxis dataKey="date" />
-          <YAxis />
-          <CartesianGrid strokeDasharray="3 3" />
-          <Tooltip />
-          <Legend />
-          <Line type="monotone" dataKey="income" stroke="#A5A11E" />
-        </LineChart>
-      </div>
+      <p>COMPANY MONTHLY INCOME</p>
+      <LineChart width={600} height={200} data={data}>
+        <XAxis size={10} padding={{ right: 30 }} dataKey="date" interval={1} />
+        <YAxis />
+        <CartesianGrid strokeDasharray="3 3" />
+        <Tooltip />
+        <Line type="monotone" dataKey="income" stroke="#A5A11E" />
+      </LineChart>
     </div>
   );
 };

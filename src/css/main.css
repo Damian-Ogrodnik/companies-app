@@ -2,20 +2,75 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding: 2rem;
+  padding: 1rem;
 }
 
-.chart__wrapper {
-  background-color: #e8e8e8;
-  padding: 2rem;
-  border: 3px solid #2b2d42;
+.chart p {
+  font-weight: 700;
+  padding: 1rem;
+  text-align: center;
+}
+
+.recharts-wrapper {
+  border: 0.2rem solid #2b2d42;
   border-radius: 1rem;
+  background-color: #e8e8e8;
+  width: 40rem !important;
+  height: 17rem !important;
+  padding: 1rem;
+}
+
+@media only screen and (max-width: 860px) {
+  .recharts-wrapper {
+    height: 20rem !important;
+    width: 45rem !important;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .recharts-wrapper {
+    height: 20rem !important;
+    width: 45rem !important;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .recharts-wrapper {
+    width: 28rem !important;
+    height: 15rem !important;
+  }
+}
+
+.recharts-surface {
+  margin-top: 1rem;
+}
+
+@media only screen and (max-width: 860px) {
+  .recharts-surface {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .recharts-surface {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .recharts-surface {
+    width: 100% !important;
+    height: 100% !important;
+  }
 }
 
 .company-details {
@@ -27,7 +82,7 @@
       -ms-flex-direction: column;
           flex-direction: column;
   position: relative;
-  height: 90%;
+  height: 100%;
 }
 
 .company-details h2 {
@@ -173,8 +228,9 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  height: 10%;
-  width: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .company-details__close button {

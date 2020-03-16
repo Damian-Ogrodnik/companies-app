@@ -33,7 +33,7 @@ export const CompanyDetailsModal = ({ basicData, openModal, setOpenModal }) => {
             dispatch(reset());
           }}
         >
-          Close
+          X
         </button>
       </div>
     </Modal>
