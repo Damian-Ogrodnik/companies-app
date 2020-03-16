@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { CompanyDetails } from "../CompanyDetails";
+import { CompanyDetailsModal } from "../CompanyDetailsModal";
 
 export const TableRow = ({
   id,
@@ -21,7 +21,7 @@ export const TableRow = ({
       ) : (
         <>
           <button onClick={() => setOpenModal(true)}>Details</button>
-          <CompanyDetails
+          <CompanyDetailsModal
             basicData={{ id, name, city, income }}
             openModal={openModal}
             setOpenModal={setOpenModal}
