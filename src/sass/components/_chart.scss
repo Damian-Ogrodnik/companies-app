@@ -1,0 +1,11 @@
+.chart {
+  @include flex-center;
+  padding: 2rem;
+
+  &__wrapper {
+    background-color: $background-color;
+    padding: 2rem;
+    border: 3px solid $first-color;
+    border-radius: 1rem;
+  }
+}

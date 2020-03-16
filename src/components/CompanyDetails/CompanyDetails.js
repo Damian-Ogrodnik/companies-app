@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCompanyDetails } from "../../redux/dataCompany/dataCompanyUtils";
 import { getLastMonthIncome, getIncomes } from "../../services/companyDetails";
 
+import { Chart } from "../Chart";
 import { DateRange } from "../DateRange";
 import { withLoading } from "../withLoading";
 
@@ -12,6 +13,7 @@ const CompanyDetails = ({ basicData: { id, city, name }, openModal }) => {
   const [lastMonthIncome, setLastMonthIncome] = useState(0);
   const [totalIncome, setTotalIncome] = useState(0);
   const [averageIncome, setAverageIncome] = useState(0);
+  const [monthIncomes, setMonthIncomes] = useState([]);
   const dispatch = useDispatch();
   const incomes = useSelector(store => store.companyDetails.incomes);
   const startDate = useSelector(store => store.companyDetails.startDate);
@@ -32,9 +34,11 @@ const CompanyDetails = ({ basicData: { id, city, name }, openModal }) => {
   useEffect(() => {
     if (openModal)
       getIncomes(startDate, stopDate, incomes).then(
-        ({ totalIncome, averageIncome }) => {
+        ({ totalIncome, averageIncome, filteredIncomes }) => {
           setTotalIncome(totalIncome);
           setAverageIncome(averageIncome);
+          console.log(filteredIncomes);
+          setMonthIncomes(filteredIncomes);
         }
       );
   }, [startDate, stopDate, incomes]);
@@ -67,6 +71,7 @@ const CompanyDetails = ({ basicData: { id, city, name }, openModal }) => {
         </div>
       </div>
       <DateRange />
+      <Chart incomes={monthIncomes} />
     </div>
   );
 };

@@ -39,6 +39,7 @@ export const getIncomes = async (startDate, stopDate, incomes) => {
 
   return {
     totalIncome: Math.round((totalIncome + Number.EPSILON) * 100) / 100,
-    averageIncome
+    averageIncome,
+    filteredIncomes
   };
 };
