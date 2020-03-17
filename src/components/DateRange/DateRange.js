@@ -50,6 +50,7 @@ export const DateRange = () => {
             startDate={startDate}
             endDate={endDate}
             minDate={minDateRange}
+            maxDate={maxDateRange}
             placeholderText="Select start date range"
           />
         </div>

@@ -39,11 +39,19 @@ const CompanyDetails = ({ basicData: { id, city, name }, openModal }) => {
         ({ totalIncome, averageIncome, filteredIncomes }) => {
           setTotalIncome(totalIncome);
           setAverageIncome(averageIncome);
-          console.log(filteredIncomes);
           setMonthIncomes(filteredIncomes);
         }
       );
   }, [startDate, stopDate, incomes]);
+
+  const renderIncome = (income, text) => {
+    return (
+      <div className="company-details__incomes income">
+        <p>{text} INCOME</p>
+        <p>{income}</p>
+      </div>
+    );
+  };
 
   return (
     <div className="company-details">
@@ -59,18 +67,9 @@ const CompanyDetails = ({ basicData: { id, city, name }, openModal }) => {
         <p>{city}</p>
       </div>
       <div className="company-details__incomes">
-        <div className="company-details__incomes income">
-          <p>TOTAL INCOME</p>
-          <p>{totalIncome}</p>
-        </div>
-        <div className="company-details__incomes income">
-          <p>AVERAGE INCOME</p>
-          <p>{averageIncome}</p>
-        </div>
-        <div className="company-details__incomes income">
-          <p>LAST MONTH INCOME</p>
-          <p>{lastMonthIncome}</p>
-        </div>
+        {renderIncome(totalIncome, "TOTAL")}
+        {renderIncome(averageIncome, "AVERAGE")}
+        {renderIncome(lastMonthIncome, "LAST MONTH ")}
       </div>
       <DateRange />
       <Chart incomes={monthIncomes} />

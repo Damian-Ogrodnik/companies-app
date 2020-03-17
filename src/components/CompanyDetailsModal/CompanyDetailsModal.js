@@ -13,6 +13,11 @@ export const CompanyDetailsModal = ({ basicData, openModal, setOpenModal }) => {
 
   Modal.setAppElement("body");
 
+  const handleClose = () => {
+    setOpenModal(false);
+    dispatch(reset());
+  };
+
   return (
     <Modal
       isOpen={openModal}
@@ -27,14 +32,7 @@ export const CompanyDetailsModal = ({ basicData, openModal, setOpenModal }) => {
         openModal={openModal}
       />
       <div className="company-details__close">
-        <button
-          onClick={() => {
-            setOpenModal(false);
-            dispatch(reset());
-          }}
-        >
-          X
-        </button>
+        <button onClick={() => handleClose()}>X</button>
       </div>
     </Modal>
   );
