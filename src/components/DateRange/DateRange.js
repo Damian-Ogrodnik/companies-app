@@ -4,15 +4,17 @@ import { useSelector, useDispatch } from "react-redux";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-import { getStartStopDates } from "../../services/companyDetails";
 import { setDates } from "../../redux/dataCompany/dataCompanyUtils";
+import { getStartStopDates } from "../../services/companyDetails";
 
 export const DateRange = () => {
   const [maxDateRange, setMaxDateRange] = useState(null);
   const [minDateRange, setMinDateRange] = useState(null);
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
+
   const dispatch = useDispatch();
+
   const incomes = useSelector(store => store.companyDetails.incomes);
 
   useEffect(() => {

@@ -5,6 +5,7 @@ import { filterCompanies } from "../../redux/data/dataUtils";
 
 export const Search = () => {
   const dispatch = useDispatch();
+
   const companies = useSelector(store => store.data.companies);
 
   const handleChange = async e => {

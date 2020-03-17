@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import { CompanyDetailsModal } from "../CompanyDetailsModal";
 
 export const TableRow = ({
@@ -10,6 +11,7 @@ export const TableRow = ({
   header = false
 }) => {
   const [openModal, setOpenModal] = useState(false);
+
   return (
     <li className={"table__row" + (header ? " header" : "")}>
       <p>{id}</p>

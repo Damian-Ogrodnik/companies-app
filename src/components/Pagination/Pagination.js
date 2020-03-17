@@ -6,8 +6,9 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { paginateCompanies } from "../../redux/pagination/paginationUtils";
 
 export const Pagination = ({ postsPerPage = 10, companies }) => {
-  const [pageNumbers, setPageNumbers] = useState([]);
   const [active, setActive] = useState(1);
+  const [pageNumbers, setPageNumbers] = useState([]);
+
   const dispatch = useDispatch();
 
   useEffect(() => {

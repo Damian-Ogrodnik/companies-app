@@ -14,7 +14,9 @@ const CompanyDetails = ({ basicData: { id, city, name }, openModal }) => {
   const [totalIncome, setTotalIncome] = useState(0);
   const [averageIncome, setAverageIncome] = useState(0);
   const [monthIncomes, setMonthIncomes] = useState([]);
+
   const dispatch = useDispatch();
+
   const incomes = useSelector(store => store.companyDetails.incomes);
   const startDate = useSelector(store => store.companyDetails.startDate);
   const stopDate = useSelector(store => store.companyDetails.stopDate);

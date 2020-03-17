@@ -7,9 +7,9 @@ import { reset } from "../../redux/dataCompany/dataCompanyActions";
 import { CompanyDetails } from "../CompanyDetails/";
 
 export const CompanyDetailsModal = ({ basicData, openModal, setOpenModal }) => {
-  const loading = useSelector(store => store.companyDetails.loading);
-  const error = useSelector(store => store.companyDetails.error);
   const dispatch = useDispatch();
+  const error = useSelector(store => store.companyDetails.error);
+  const loading = useSelector(store => store.companyDetails.loading);
 
   Modal.setAppElement("body");
 
