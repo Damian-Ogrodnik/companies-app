@@ -403,6 +403,13 @@
   }
 }
 
+@media only screen and (max-width: 480px) {
+  .table__wrapper {
+    margin: 0rem 0.5rem;
+    height: 90%;
+  }
+}
+
 .table__row {
   display: -webkit-box;
   display: -ms-flexbox;
