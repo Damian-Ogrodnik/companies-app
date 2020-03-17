@@ -21,4 +21,4 @@ This application gets information from API about companies (eq. name, city of or
 - Filter companies by user input
 - Show specific company income information after user request
 - Dispaly income chart for specific company
-- Filter by date company incomes
+- Filter company incomes by date
