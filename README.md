@@ -9,7 +9,7 @@ To get the project running locally you have to:
 - Use `npm start` to start the local server (this project uses create-react-app)
 - Open browser on local host `3000`
 
-You can check [LIVE DEMO](https://dogrodnik.github.io/companies-app/) without installing project localy.
+Also you can check [LIVE DEMO](https://dogrodnik.github.io/companies-app/) without installing project locally.
 
 ## Functionality overview
 
