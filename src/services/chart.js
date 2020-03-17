@@ -10,17 +10,23 @@ export const getMonthIncomes = async incomes => {
   });
 
   return await Promise.all(incomesStandarized).then(async data => {
-    const result = [];
-
-    data.forEach(function(a) {
-      if (!this[a.date]) {
-        this[a.date] = { date: a.date, income: 0 };
-        result.push(this[a.date]);
-      }
-      this[a.date].income += a.income;
-    }, Object.create(null));
+    let result = await sumIncomeByDates(data);
     return result.sort(compare);
   });
+};
+
+const sumIncomeByDates = async standarizedIncomes => {
+  const result = [];
+
+  await standarizedIncomes.forEach(function(a) {
+    if (!this[a.date]) {
+      this[a.date] = { date: a.date, income: 0 };
+      result.push(this[a.date]);
+    }
+    this[a.date].income += a.income;
+  }, Object.create(null));
+
+  return result;
 };
 
 const compare = (a, b) => {

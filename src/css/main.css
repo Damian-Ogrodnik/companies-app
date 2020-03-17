@@ -25,16 +25,11 @@
   width: 40rem !important;
   height: 17rem !important;
   padding: 1rem;
+  -webkit-box-shadow: 0 1.25px 2.25rem rgba(0, 0, 0, 0.3), 0 1rem 0.75rem rgba(0, 0, 0, 0.22);
+          box-shadow: 0 1.25px 2.25rem rgba(0, 0, 0, 0.3), 0 1rem 0.75rem rgba(0, 0, 0, 0.22);
 }
 
 @media only screen and (max-width: 860px) {
-  .recharts-wrapper {
-    height: 20rem !important;
-    width: 45rem !important;
-  }
-}
-
-@media only screen and (max-width: 600px) {
   .recharts-wrapper {
     height: 20rem !important;
     width: 45rem !important;
@@ -183,18 +178,6 @@
   }
 }
 
-@media only screen and (max-width: 600px) {
-  .company-details__datepickers {
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-}
-
 .company-details__datepicker p {
   text-align: left;
   font-size: 0.75rem;
@@ -207,12 +190,6 @@
 }
 
 @media only screen and (max-width: 860px) {
-  .company-details__datepicker input {
-    margin-bottom: 1.5rem;
-  }
-}
-
-@media only screen and (max-width: 600px) {
   .company-details__datepicker input {
     margin-bottom: 1.5rem;
   }
@@ -421,14 +398,7 @@
 
 @media only screen and (max-width: 860px) {
   .table__wrapper {
-    margin: 0rem 0.25rem;
-    height: 70%;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .table__wrapper {
-    margin: 0rem 0.25rem;
+    margin: 0rem 0.5rem;
     height: 70%;
   }
 }
@@ -439,16 +409,20 @@
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  position: relative;
   padding: 0.25rem 5rem;
 }
 
-@media only screen and (max-width: 860px) {
-  .table__row {
-    padding: 0.25rem 1rem;
-  }
+.table__row:after {
+  content: "";
+  width: 95%;
+  height: 1px;
+  background-color: #2b2d42;
+  position: absolute;
+  bottom: 0;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 860px) {
   .table__row {
     padding: 0.25rem 1rem;
   }
@@ -466,7 +440,6 @@
   content: "";
   width: 95%;
   height: 0.1rem;
-  /* slight higher to work around rounding errors(?) on some zoom levels in some browsers. */
   background-color: #2b2d42;
   position: absolute;
   bottom: 0;
@@ -477,6 +450,12 @@
 }
 
 .table__row p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
   text-align: start;
 }

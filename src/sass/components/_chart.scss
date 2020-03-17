@@ -17,12 +17,10 @@
   width: 40rem !important;
   height: 17rem !important;
   padding: 1rem;
+  box-shadow: 0 1.25px 2.25rem rgba(0, 0, 0, 0.3),
+    0 1rem 0.75rem rgba(0, 0, 0, 0.22);
 
   @media only screen and (max-width: 860px) {
-    height: 20rem !important;
-    width: 45rem !important;
-  }
-  @media only screen and (max-width: 600px) {
     height: 20rem !important;
     width: 45rem !important;
   }

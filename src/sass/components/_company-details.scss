@@ -68,10 +68,6 @@
       align-items: center;
       flex-direction: column;
     }
-    @media only screen and (max-width: 600px) {
-      align-items: center;
-      flex-direction: column;
-    }
   }
 
   &__datepicker {
@@ -84,9 +80,6 @@
     input {
       font-size: 1.25rem;
       @media only screen and (max-width: 860px) {
-        margin-bottom: 1.5rem;
-      }
-      @media only screen and (max-width: 600px) {
         margin-bottom: 1.5rem;
       }
     }

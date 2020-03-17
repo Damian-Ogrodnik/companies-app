@@ -12,11 +12,7 @@
     height: 90%;
 
     @media only screen and (max-width: 860px) {
-      margin: 0rem 0.25rem;
-      height: 70%;
-    }
-    @media only screen and (max-width: 600px) {
-      margin: 0rem 0.25rem;
+      margin: 0rem 0.5rem;
       height: 70%;
     }
   }
@@ -24,11 +20,17 @@
   &__row {
     display: flex;
     justify-content: space-around;
+    position: relative;
     padding: 0.25rem 5rem;
-    @media only screen and (max-width: 860px) {
-      padding: 0.25rem 1rem;
+    &:after {
+      content: "";
+      width: 95%;
+      height: 1px;
+      background-color: $first-color;
+      position: absolute;
+      bottom: 0;
     }
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 860px) {
       padding: 0.25rem 1rem;
     }
 
@@ -42,8 +44,8 @@
       &:after {
         content: "";
         width: 95%;
-        height: 0.1rem; /* slight higher to work around rounding errors(?) on some zoom levels in some browsers. */
-        background-color: #2b2d42;
+        height: 0.1rem;
+        background-color: $first-color;
         position: absolute;
         bottom: 0;
       }
@@ -54,6 +56,8 @@
     }
 
     p {
+      display: flex;
+      align-items: center;
       width: 100%;
       text-align: start;
     }

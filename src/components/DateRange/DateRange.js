@@ -50,6 +50,7 @@ export const DateRange = () => {
             startDate={startDate}
             endDate={endDate}
             minDate={minDateRange}
+            placeholderText="Select start date range"
           />
         </div>
         <div className="company-details__datepicker">
@@ -62,6 +63,7 @@ export const DateRange = () => {
             endDate={endDate}
             minDate={startDate}
             maxDate={maxDateRange}
+            placeholderText="Select stop date range"
           />
         </div>
       </div>
