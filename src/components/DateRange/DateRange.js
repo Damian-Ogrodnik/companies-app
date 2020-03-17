@@ -8,6 +8,8 @@ import { getStartStopDates } from "../../services/companyDetails";
 import { setDates } from "../../redux/dataCompany/dataCompanyUtils";
 
 export const DateRange = () => {
+  const [maxDateRange, setMaxDateRange] = useState(null);
+  const [minDateRange, setMinDateRange] = useState(null);
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const dispatch = useDispatch();
@@ -19,10 +21,14 @@ export const DateRange = () => {
         if (minDate && maxDate) {
           setStartDate(new Date(minDate));
           setEndDate(new Date(maxDate));
+          if (!maxDateRange && !minDateRange) {
+            setMinDateRange(new Date(minDate));
+            setMaxDateRange(new Date(maxDate));
+          }
         }
       });
     }
-  }, [incomes]);
+  }, [incomes, maxDateRange, minDateRange]);
 
   useEffect(() => {
     dispatch(setDates(startDate, endDate));
@@ -41,7 +47,7 @@ export const DateRange = () => {
             selectsStart
             startDate={startDate}
             endDate={endDate}
-            minDate={startDate}
+            minDate={minDateRange}
           />
         </div>
         <div className="company-details__datepicker">
@@ -53,7 +59,7 @@ export const DateRange = () => {
             startDate={startDate}
             endDate={endDate}
             minDate={startDate}
-            maxDate={endDate}
+            maxDate={maxDateRange}
           />
         </div>
       </div>
